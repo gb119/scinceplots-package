@@ -1,0 +1,42 @@
+{% set name = "scienceplots" %}
+{% set version = "1.0.9" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/SciencePlots-{{ version }}.tar.gz
+  sha256: 2b002f263734a718acdf1e5be57f0de5ee887e70517dfbe1118a27d0ee3dfb0f
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+
+requirements:
+  host:
+    - python
+    - matplotlib-base
+    - pip
+  run:
+    - python
+    - matplotlib-base
+
+test:
+  imports:
+    - scienceplots
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/garrettj403/SciencePlots/
+  summary: Format Matplotlib for scientific plotting
+  license: MIT
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - gb119

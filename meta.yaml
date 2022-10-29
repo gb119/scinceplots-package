@@ -23,14 +23,6 @@ requirements:
     - python
     - matplotlib-base
 
-test:
-  imports:
-    - scienceplots
-  commands:
-    - pip check
-  requires:
-    - pip
-
 about:
   home: https://github.com/garrettj403/SciencePlots/
   summary: Format Matplotlib for scientific plotting
